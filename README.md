@@ -19,7 +19,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -64,7 +63,6 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -84,22 +82,24 @@ If you want to try it, you need a virtual environment with Python 3.9+ and pip i
 
 ### Prerequisites
 
-As I said earlier you will need Python 3.9+ and pip3 installed in your computer, also you will need to install some libraries, to do that you will need to download the project and run a pip command as you will see on the installation section.
+As I said above you will need Python 3.9+ and pip3 installed in your computer, also you will need to install some libraries, to do that you will need to download the project and run a pip command as you will see on the installation section.
 
 ### Installation
 
-1. Get a free API Key and Secret at [https://example.com](https://example.com)
+1. Get a free API Key and Secret at [Spotify for Devs!](https://developer.spotify.com/dashboard/applications)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/BubuDavid/Bubufy.git
    ```
-3. Install NPM packages
+3. Install pip packages
    ```sh
-   npm install
+   pip install -r requirements.txt
    ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
+4. Enter your API in an `.env` file
+   ```
+	SPOTIFY_CLIENT_ID=your actual client_id
+	SPOTIFY_CLIENT_SECRET=your actual client_secret
+	SPOTIFY_CALLBACK_URI=your actual callback_uri
    ```
 
 
@@ -107,9 +107,9 @@ As I said earlier you will need Python 3.9+ and pip3 installed in your computer,
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+For now you can only recolect users info, the top tracks or artists for this user and the recently played tracks. 
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+<!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 
 
@@ -123,7 +123,7 @@ See the [open issues](https://github.com/BubuDavid/Bubufy.git/issues) for a list
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Hi there! You want to contribute! Let me now how with your PR!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -143,25 +143,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+David (Bubu) - [@DBubu73](https://twitter.com/DBubu73) - david.pedroza.segoviano@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/BubuDavid/Bubufy](https://github.com/BubuDavid/Bubufy)
 
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
 
 
 
@@ -169,16 +154,16 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/BubuDavid/Bubufy.svg?style=for-the-badge
 [contributors-url]: https://github.com/BubuDavid/Bubufy.git/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/BubuDavid/Bubufy.svg?style=for-the-badge
 [forks-url]: https://github.com/BubuDavid/Bubufy.git/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/BubuDavid/Bubufy.svg?style=for-the-badge
 [stars-url]: https://github.com/BubuDavid/Bubufy.git/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/BubuDavid/Bubufy.svg?style=for-the-badge
 [issues-url]: https://github.com/BubuDavid/Bubufy.git/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/BubuDavid/Bubufy.svg?style=for-the-badge
 [license-url]: https://github.com/BubuDavid/Bubufy.git/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://www.linkedin.com/in/davidpedrozasegoviano/
 [product-screenshot]: static/images/screenshot.png
