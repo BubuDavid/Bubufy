@@ -86,28 +86,64 @@ As I said above you will need Python 3.9+ and pip3 installed in your computer, a
 
 ### Installation
 
-1. Get a free API Key and Secret at [Spotify for Devs!](https://developer.spotify.com/dashboard/applications)
-2. Clone the repo
+1. Get a free API Key and Secret at [Spotify for Devs!](https://developer.spotify.com/dashboard/applications) `Strong recommendation, set a Callback URI`
+2. Install the library
    ```sh
-   git clone https://github.com/BubuDavid/Bubufy.git
-   ```
-3. Install pip packages
-   ```sh
-   pip install -r requirements.txt
-   ```
-4. Enter your API in an `.env` file
-   ```
-	SPOTIFY_CLIENT_ID=your actual client_id
-	SPOTIFY_CLIENT_SECRET=your actual client_secret
-	SPOTIFY_CALLBACK_URI=your actual callback_uri
-   ```
-
+  	 pip install bubufy
+	 ```
+3. Store you keys and Callback URI in a .env or another kind of secret file
+  ```sh
+		SPOTIFY_CLIENT_ID=your actual client_id
+		SPOTIFY_CLIENT_SECRET=your actual client_secret
+		SPOTIFY_CALLBACK_URI=your actual callback_uri
+  ```
+4. You are Ready
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-For now you can only recolect users info, the top tracks or artists for this user and the recently played tracks. 
+For now you can only recolect users info, the top tracks or artists for this user and the recently played tracks.And it is optimized to use with `Flask` and `Django`, I will use *Flask* on this next steps:
+
+1. Create a bubufy instance with your respective keys:
+```python
+bubufy = Bubufy(client_id, client_secret, callback_uri)
+```
+2. Get the authorization url and go to give access to use the API
+```python
+auth_url = bubufy.get_auth_url()
+```
+You can access to this url through a button in your Flask, an example of this would be
+```python
+@app.route('/route_name')
+def method_name():
+	context = {
+		'auth_url': auth_url,
+	}
+	return render_template('template_name.html', **context)
+```
+And on your HTML could be something like:
+'''HTML
+<a href="{{ auth_url }}">Hi! Authorize me!</a>
+'''
+
+4. Give the app access, get the code from the redirect url and set the token with the following methods:
+```python
+@app.route('/callback_uri')
+def callback_name():
+	code = require.args.get('code')
+	bubufy.set_code_for_token(code)
+	bubufy.set_token()
+	return redirect(url_for(index)) # This for security or better UX
+```
+5. And now you have a functional api in the `bubufy` object, you can make some things with it, for example, let's print the username in our page (Don't forget this is a flask project):
+```python
+@app.route('/username')
+def username_route():
+	username = bubufy.get_user_data()['display_name']
+	return username
+```
+You can make other things, I will soon update the documentation.
 
 <!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
