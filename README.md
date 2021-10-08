@@ -89,7 +89,7 @@ As I said above you will need Python 3.9+ and pip3 installed in your computer, a
 1. Get a free API Key and Secret at [Spotify for Devs!](https://developer.spotify.com/dashboard/applications) `Strong recommendation, set a Callback URI`
 2. Install the library
    ```sh
-  	 pip install bubufy
+  	 pip install bbfy
 	 ```
 3. Store you keys and Callback URI in a .env or another kind of secret file
   ```sh
