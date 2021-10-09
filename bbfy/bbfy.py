@@ -10,7 +10,7 @@ def require_token(method):
 	def wrapper(ref, *args, **kwargs):
 		if not ref.has_access_token:
 			raise Exception('This needs an access token!')
-		if ref.did_expired_token:
+		if ref.did_expired_token():
 			raise Exception('This token already expired!')
 		
 		return method(ref, *args, **kwargs)
@@ -143,7 +143,7 @@ class Bubufy:
 			print('-------------')
 			print('We can not set the token')
 			print('-------------')
-			raise Exception(f'Sorry, no token available: {status}')
+			raise Exception(f'Sorry, this is not a validate token: {status}')
 		
 		# Store the token
 		response = r.json()
@@ -192,8 +192,12 @@ class Bubufy:
 			'grant_type'   : 'refresh_token',
 			'refresh_token': self.__refresh_token,
 		}
-		# Get the headers
-		headers = self.__get_headers_authorization()
+		# Define headers with the encode base 64 credentials
+		client_credentials = f'{self.__client_id}:{self.__client_secret}'
+		client_credentials_b64 = base64.b64encode(client_credentials.encode()).decode()
+		headers = {
+            'Authorization' : f'Basic {client_credentials_b64}'
+        }
 		# Make post request
 		r = requests.post(
 			url=endpoint,
@@ -206,7 +210,7 @@ class Bubufy:
 			print('-------------')
 			print('We can not set the token from this refreshed token')
 			print('-------------')
-			raise Exception(f'Sorry, no token available, for refresh token: {status}')
+			raise Exception(f'Sorry, not validate token, for refresh token: {status}')
 
 		# Store the token
 		response = r.json()
@@ -214,10 +218,6 @@ class Bubufy:
 		self.has_access_token = True
 		# Set the expiration
 		self.set_expiration_time(response)
-		# Check if did expired
-		self.set_did_expired()
-		# Set the refresh token
-		self.set_refresh_token(response['refresh_token'])
 
 
 	# * Method that request for user data
