@@ -123,18 +123,18 @@ def method_name():
 	return render_template('template_name.html', **context)
 ```
 And on your HTML could be something like:
-'''HTML
+```html
 <a href="{{ auth_url }}">Hi! Authorize me!</a>
-'''
+```
 
 4. Give the app access, get the code from the redirect url and set the token with the following methods:
 ```python
 @app.route('/callback_uri')
 def callback_name():
-	code = require.args.get('code')
+	code = request.args.get('code')
 	bubufy.set_code_for_token(code)
 	bubufy.set_token()
-	return redirect(url_for(index)) # This for security or better UX
+	return redirect(url_for('index')) # This for security or better UX
 ```
 5. And now you have a functional api in the `bubufy` object, you can make some things with it, for example, let's print the username in our page (Don't forget this is a flask project):
 ```python
