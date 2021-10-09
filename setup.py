@@ -9,7 +9,7 @@ setup(
   author = 'David Pedroza Segoviano (Bubu)',                   # Type in your name
   author_email = 'david.pedroza.segoviano@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/BubuDavid/Bubufy',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/BubuDavid/Bubufy/archive/refs/tags/v0.1.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/BubuDavid/Bubufy/archive/refs/tags/v0.2.tar.gz',    # I explain this later on
   keywords = ['Python', 'SpotifyAPI'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'requests',
