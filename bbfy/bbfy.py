@@ -177,7 +177,6 @@ class Bubufy:
 
 
 	# * Get the headers for use the spotify api
-	@require_token
 	def __get_headers_authorization(self):
 		return {
 			'Accept'       : 'application/json',
