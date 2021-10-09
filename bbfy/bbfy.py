@@ -10,7 +10,7 @@ def require_token(method):
 	def wrapper(ref, *args, **kwargs):
 		if not ref.has_access_token:
 			raise Exception('This needs an access token!')
-		if ref.did_expired_token():
+		if ref.did_expired_token:
 			raise Exception('This token already expired!')
 		
 		return method(ref, *args, **kwargs)
